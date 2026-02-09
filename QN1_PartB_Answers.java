@@ -1,3 +1,5 @@
+
+// GitHub Repository: https://github.com/arnoldjosamgh/java-course-work
 import java.util.Scanner;
 
 public class QN1_PartB_Answers {
@@ -46,7 +48,7 @@ public class QN1_PartB_Answers {
         } else {
             System.out.println("No Profit or Loss (Break-even).");
         }
-        
+
         scanner.close();
     }
 }

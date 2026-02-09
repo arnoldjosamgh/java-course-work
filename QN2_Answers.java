@@ -1,3 +1,5 @@
+
+// GitHub Repository: https://github.com/arnoldjosamgh/java-course-work
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -42,56 +44,64 @@ public class QN2_Answers extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         gbc.insets = new Insets(5, 5, 5, 5);
 
-        gbc.gridx = 0; gbc.gridy = 0;
+        gbc.gridx = 0;
+        gbc.gridy = 0;
         formPanel.add(new JLabel("Student First Name:"), gbc);
         gbc.gridx = 1;
         firstNameField = new JTextField(15);
         formPanel.add(firstNameField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 1;
+        gbc.gridx = 0;
+        gbc.gridy = 1;
         formPanel.add(new JLabel("Student Last Name:"), gbc);
         gbc.gridx = 1;
         lastNameField = new JTextField(15);
         formPanel.add(lastNameField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 2;
+        gbc.gridx = 0;
+        gbc.gridy = 2;
         formPanel.add(new JLabel("Email Address:"), gbc);
         gbc.gridx = 1;
         emailField = new JTextField(15);
         formPanel.add(emailField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 3;
+        gbc.gridx = 0;
+        gbc.gridy = 3;
         formPanel.add(new JLabel("Confirm Email Address:"), gbc);
         gbc.gridx = 1;
         confirmEmailField = new JTextField(15);
         formPanel.add(confirmEmailField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 4;
+        gbc.gridx = 0;
+        gbc.gridy = 4;
         formPanel.add(new JLabel("Password:"), gbc);
         gbc.gridx = 1;
         passwordField = new JPasswordField(15);
         formPanel.add(passwordField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 5;
+        gbc.gridx = 0;
+        gbc.gridy = 5;
         formPanel.add(new JLabel("Confirm Password:"), gbc);
         gbc.gridx = 1;
         confirmPasswordField = new JPasswordField(15);
         formPanel.add(confirmPasswordField, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 6;
+        gbc.gridx = 0;
+        gbc.gridy = 6;
         formPanel.add(new JLabel("Date of Birth:"), gbc);
         gbc.gridx = 1;
         JPanel dobPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
         String[] years = new String[61];
         years[0] = "Select Year";
-        for (int i = 1; i <= 60; i++) years[i] = String.valueOf(2026 - 15 - i);
+        for (int i = 1; i <= 60; i++)
+            years[i] = String.valueOf(2026 - 15 - i);
         yearBox = new JComboBox<>(years);
-        
-        String[] months = {"Select Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"};
+
+        String[] months = { "Select Month", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" };
         monthBox = new JComboBox<>(months);
-        
-        dayBox = new JComboBox<>(new String[]{"Select Day"});
-        
+
+        dayBox = new JComboBox<>(new String[] { "Select Day" });
+
         dobPanel.add(yearBox);
         dobPanel.add(monthBox);
         dobPanel.add(dayBox);
@@ -100,7 +110,8 @@ public class QN2_Answers extends JFrame {
         monthBox.addActionListener(e -> updateDays());
         yearBox.addActionListener(e -> updateDays());
 
-        gbc.gridx = 0; gbc.gridy = 7;
+        gbc.gridx = 0;
+        gbc.gridy = 7;
         formPanel.add(new JLabel("Gender:"), gbc);
         gbc.gridx = 1;
         JPanel genderPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 0, 0));
@@ -113,7 +124,8 @@ public class QN2_Answers extends JFrame {
         genderPanel.add(femaleRadio);
         formPanel.add(genderPanel, gbc);
 
-        gbc.gridx = 0; gbc.gridy = 8;
+        gbc.gridx = 0;
+        gbc.gridy = 8;
         gbc.anchor = GridBagConstraints.NORTHWEST;
         formPanel.add(new JLabel("Department:"), gbc);
         gbc.gridx = 1;
@@ -124,7 +136,7 @@ public class QN2_Answers extends JFrame {
         elecCheck = new JCheckBox("Electrical");
         ecCheck = new JCheckBox("Electronics and Communication");
         mechCheck = new JCheckBox("Mechanical");
-        
+
         deptPanel.add(civilCheck);
         deptPanel.add(cseCheck);
         deptPanel.add(elecCheck);
@@ -132,7 +144,8 @@ public class QN2_Answers extends JFrame {
         deptPanel.add(mechCheck);
         formPanel.add(deptPanel, gbc);
 
-        gbc.gridx = 1; gbc.gridy = 9;
+        gbc.gridx = 1;
+        gbc.gridy = 9;
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         JButton submitButton = new JButton("Submit");
         JButton cancelButton = new JButton("Cancel");
@@ -183,7 +196,7 @@ public class QN2_Answers extends JFrame {
         String selectedMonth = (String) monthBox.getSelectedItem();
 
         if (selectedYear == null || selectedYear.equals("Select Year") ||
-            selectedMonth == null || selectedMonth.equals("Select Month")) {
+                selectedMonth == null || selectedMonth.equals("Select Month")) {
             return;
         }
 
@@ -192,11 +205,26 @@ public class QN2_Answers extends JFrame {
         int days = 0;
 
         switch (month) {
-            case 1: case 3: case 5: case 7: case 8: case 10: case 12: days = 31; break;
-            case 4: case 6: case 9: case 11: days = 30; break;
+            case 1:
+            case 3:
+            case 5:
+            case 7:
+            case 8:
+            case 10:
+            case 12:
+                days = 31;
+                break;
+            case 4:
+            case 6:
+            case 9:
+            case 11:
+                days = 30;
+                break;
             case 2:
-                if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0)) days = 29;
-                else days = 28;
+                if ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))
+                    days = 29;
+                else
+                    days = 28;
                 break;
         }
 
@@ -214,8 +242,8 @@ public class QN2_Answers extends JFrame {
         String password = new String(passwordField.getPassword());
         String confirmPassword = new String(confirmPasswordField.getPassword());
 
-        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() || 
-            confirmEmail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+        if (firstName.isEmpty() || lastName.isEmpty() || email.isEmpty() ||
+                confirmEmail.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
             JOptionPane.showMessageDialog(this, "All fields are required.");
             return;
         }
@@ -230,8 +258,8 @@ public class QN2_Answers extends JFrame {
             return;
         }
 
-        if (password.length() < 8 || password.length() > 20 || 
-            !password.matches(".*[a-zA-Z]+.*") || !password.matches(".*\\d+.*")) {
+        if (password.length() < 8 || password.length() > 20 ||
+                !password.matches(".*[a-zA-Z]+.*") || !password.matches(".*\\d+.*")) {
             JOptionPane.showMessageDialog(this, "Password must be 8-20 chars, with 1 letter and 1 digit.");
             return;
         }
@@ -246,9 +274,9 @@ public class QN2_Answers extends JFrame {
             return;
         }
 
-        int startY = Integer.parseInt((String)yearBox.getSelectedItem());
-        int startM = Integer.parseInt((String)monthBox.getSelectedItem());
-        int startD = Integer.parseInt((String)dayBox.getSelectedItem());
+        int startY = Integer.parseInt((String) yearBox.getSelectedItem());
+        int startM = Integer.parseInt((String) monthBox.getSelectedItem());
+        int startD = Integer.parseInt((String) dayBox.getSelectedItem());
         LocalDate dob = LocalDate.of(startY, startM, startD);
         int age = Period.between(dob, LocalDate.now()).getYears();
 
@@ -264,11 +292,26 @@ public class QN2_Answers extends JFrame {
 
         int deptCount = 0;
         String dept = "";
-        if (civilCheck.isSelected()) { deptCount++; dept = "Civil"; }
-        if (cseCheck.isSelected()) { deptCount++; dept = "CSE"; }
-        if (elecCheck.isSelected()) { deptCount++; dept = "Electrical"; }
-        if (ecCheck.isSelected()) { deptCount++; dept = "E&C"; }
-        if (mechCheck.isSelected()) { deptCount++; dept = "Mechanical"; }
+        if (civilCheck.isSelected()) {
+            deptCount++;
+            dept = "Civil";
+        }
+        if (cseCheck.isSelected()) {
+            deptCount++;
+            dept = "CSE";
+        }
+        if (elecCheck.isSelected()) {
+            deptCount++;
+            dept = "Electrical";
+        }
+        if (ecCheck.isSelected()) {
+            deptCount++;
+            dept = "E&C";
+        }
+        if (mechCheck.isSelected()) {
+            deptCount++;
+            dept = "Mechanical";
+        }
 
         if (deptCount != 1) {
             JOptionPane.showMessageDialog(this, "Select exactly one department.");
@@ -276,8 +319,9 @@ public class QN2_Answers extends JFrame {
         }
 
         String gender = maleRadio.isSelected() ? "M" : "F";
-        String id = "2026-" + String.format("%05d", (int)(Math.random() * 10000));
-        String formattedRecord = "ID: " + id + " | " + firstName + " " + lastName + " | " + gender + " | " + dept + " | " + dob + " | " + email;
+        String id = "2026-" + String.format("%05d", (int) (Math.random() * 10000));
+        String formattedRecord = "ID: " + id + " | " + firstName + " " + lastName + " | " + gender + " | " + dept
+                + " | " + dob + " | " + email;
 
         displayArea.setText(formattedRecord);
 

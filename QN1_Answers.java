@@ -1,3 +1,5 @@
+
+// GitHub Repository: https://github.com/arnoldjosamgh/java-course-work
 import java.util.Scanner;
 
 public class QN1_Answers {
@@ -17,7 +19,7 @@ public class QN1_Answers {
         while (count < 5) {
             System.out.print("Enter student score out of 100: ");
             int score = scanner.nextInt();
-            
+
             int grade = 0;
             String remark = "";
 
